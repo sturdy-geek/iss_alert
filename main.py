@@ -48,8 +48,7 @@ def is_iss_above(iss_latitude,hour,sunset,sunrise):
                 msg=message.as_string()
 
             )
-        else:
-            print("the ISS is not at your current position")
+       
 
 
 is_iss_above(iss_latitude,hour,sunset,sunrise)
