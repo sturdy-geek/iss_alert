@@ -16,8 +16,8 @@ iss_longitude=data["iss_position"]["longitude"]
 iss_latitude=data["iss_position"]["latitude"]
 MYLAT=6.524379
 MYLONG=3.379206
-MYPASSWORD=os.environ.get("MYPASSWORD")
-MYEMAIL=os.environ.get("MYEMAIL")
+MYPASSWORD=os.environ.get("MY_PASSWORD")
+MYEMAIL=os.environ.get("MY_EMAIL")
 MYPOS=(MYLAT,MYLONG)
 parameters={
     "lat":MYLAT,
@@ -39,7 +39,7 @@ def is_iss_above(iss_latitude,hour,sunset,sunrise):
             message=MIMEText("The ISS have arrived , LOOK UP! ")
             message["from"]=MYEMAIL
             message["to"]=MYEMAIL
-            connection = smtplib.SMTP("smtp.gmail.com")
+            connection = smtplib.SMTP("smtp.gmail.com",587)
             connection.starttls()
             connection.login(MYEMAIL, MYPASSWORD)
             connection.sendmail(
